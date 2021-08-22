@@ -1,0 +1,19 @@
+services:
+  # dev:
+  #   container_name: nestjs
+  #   build: .
+  #   ports:
+  #     - 3000:3000
+  #   links:
+  #     - postgres
+  postgres:
+    container_name: postgres-graphql
+    image: postgres
+    ports:
+      - 5432:5432
+    environment: 
+      - POSTGRES_USER=graphql-user
+      - POSTGRES_PASSWORD=graphql-password
+      - POSTGRES_DB=graphql
+    volumes: 
+      - ./mock-db:/var/lib/postgresql/data/
